@@ -1,0 +1,15 @@
+{
+  "Records": [
+    {
+      "s3": {
+        "bucket": {
+          "name": "lab-iot-edge-sensor-data-4de6ea82"
+        },
+        "object": {
+          "key": "data/year=2026/month=05/day=31/data_fff353f2-6636-4497-9d70-f759e4d6c899.json"
+        }
+      }
+    }
+  ]
+}
+

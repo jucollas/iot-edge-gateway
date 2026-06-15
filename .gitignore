@@ -1,0 +1,73 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+eggs/
+*.egg-info/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+hypothesis/
+.pytest_cache/
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+
+# Environments
+env.bak/
+.env
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Docker
+docker-compose.override.yml
+docker-compose.*.yml
+
+# AWS
+.aws/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# Archives
+*.zip
+
+# Python package binaries and libs
+package/
+psycopg2_binary.libs/
+
+# Lambda artifacts
+lambda.zip

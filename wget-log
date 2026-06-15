@@ -1,0 +1,6 @@
+--2026-05-31 03:46:32--  https://prod-04-2014-tasks.s3.us-east-1.amazonaws.com/snapshots/741170401540/history-ingestor-c7027cda-ff11-447e-bf6b-137601f2fc90?versionId=Np5ESAfIhOD2p4sXOr_ca9zZIP3avYxM
+Resolviendo prod-04-2014-tasks.s3.us-east-1.amazonaws.com (prod-04-2014-tasks.s3.us-east-1.amazonaws.com)... 54.231.202.226, 54.231.203.210, 16.15.244.74, ...
+Conectando con prod-04-2014-tasks.s3.us-east-1.amazonaws.com (prod-04-2014-tasks.s3.us-east-1.amazonaws.com)[54.231.202.226]:443... conectado.
+Petición HTTP enviada, esperando respuesta... 403 Forbidden
+2026-05-31 03:46:32 ERROR 403: Forbidden.
+

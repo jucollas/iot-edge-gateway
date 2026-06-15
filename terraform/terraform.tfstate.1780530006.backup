@@ -1,0 +1,2208 @@
+{
+  "version": 4,
+  "terraform_version": "1.15.5",
+  "serial": 36,
+  "lineage": "05702c59-2d0e-3d50-0072-0457316e3972",
+  "outputs": {
+    "api_url": {
+      "value": "http://iot-edge-alb-1845030568.us-east-1.elb.amazonaws.com",
+      "type": "string"
+    },
+    "ecr_repository_url": {
+      "value": "793805163219.dkr.ecr.us-east-1.amazonaws.com/iot-edge-repo-lab",
+      "type": "string"
+    },
+    "iot_endpoint": {
+      "value": "aoufxseucincb-ats.iot.us-east-1.amazonaws.com",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_caller_identity",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "793805163219",
+            "arn": "arn:aws:sts::793805163219:assumed-role/voclabs/user4852658=federico04@javerianacali.edu.co",
+            "id": "793805163219",
+            "user_id": "AROA3RUTZRLJUOI6N5OUU:user4852658=federico04@javerianacali.edu.co"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_iam_role",
+      "name": "lab_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::793805163219:role/LabRole",
+            "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"firehose.amazonaws.com\",\"deepracer.amazonaws.com\",\"states.amazonaws.com\",\"eks-fargate-pods.amazonaws.com\",\"forecast.amazonaws.com\",\"cognito-idp.amazonaws.com\",\"kinesisanalytics.amazonaws.com\",\"rds.amazonaws.com\",\"events.amazonaws.com\",\"elasticmapreduce.amazonaws.com\",\"apigateway.amazonaws.com\",\"elasticbeanstalk.amazonaws.com\",\"athena.amazonaws.com\",\"lambda.amazonaws.com\",\"iot.amazonaws.com\",\"codewhisperer.amazonaws.com\",\"servicecatalog.amazonaws.com\",\"resource-groups.amazonaws.com\",\"autoscaling.amazonaws.com\",\"backup.amazonaws.com\",\"pipes.amazonaws.com\",\"batch.amazonaws.com\",\"cloud9.amazonaws.com\",\"ecs-tasks.amazonaws.com\",\"scheduler.amazonaws.com\",\"logs.amazonaws.com\",\"credentials.iot.amazonaws.com\",\"ec2.amazonaws.com\",\"glue.amazonaws.com\",\"eks.amazonaws.com\",\"sqs.amazonaws.com\",\"codecommit.amazonaws.com\",\"cloudtrail.amazonaws.com\",\"iotevents.amazonaws.com\",\"ssm.amazonaws.com\",\"ecs.amazonaws.com\",\"kms.amazonaws.com\",\"rekognition.amazonaws.com\",\"cloudformation.amazonaws.com\",\"elasticfilesystem.amazonaws.com\",\"elasticloadbalancing.amazonaws.com\",\"dynamodb.amazonaws.com\",\"codedeploy.amazonaws.com\",\"ec2.application-autoscaling.amazonaws.com\",\"application-autoscaling.amazonaws.com\",\"sagemaker.amazonaws.com\",\"databrew.amazonaws.com\",\"iotanalytics.amazonaws.com\",\"redshift.amazonaws.com\",\"s3.amazonaws.com\",\"sns.amazonaws.com\",\"secretsmanager.amazonaws.com\",\"kinesis.amazonaws.com\"],\"AWS\":\"arn:aws:iam::793805163219:role/LabRole\"},\"Action\":\"sts:AssumeRole\"}]}",
+            "create_date": "2026-06-02T03:08:54Z",
+            "description": "",
+            "id": "LabRole",
+            "max_session_duration": 3600,
+            "name": "LabRole",
+            "path": "/",
+            "permissions_boundary": "",
+            "role_last_used": [
+              {
+                "last_used_date": "2026-06-02T06:48:24Z",
+                "region": "us-east-1"
+              }
+            ],
+            "tags": {
+              "cloudlab": "c202153a5159558l15368084t1w793805163219"
+            },
+            "unique_id": "AROA3RUTZRLJTI6NFNOKC"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_iot_endpoint",
+      "name": "iot_endpoint",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "endpoint_address": "aoufxseucincb-ats.iot.us-east-1.amazonaws.com",
+            "endpoint_type": "iot:Data-ATS",
+            "id": "aoufxseucincb-ats.iot.us-east-1.amazonaws.com"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_region",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "US East (N. Virginia)",
+            "endpoint": "ec2.us-east-1.amazonaws.com",
+            "id": "us-east-1",
+            "name": "us-east-1"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "http",
+      "name": "root_ca",
+      "provider": "provider[\"registry.terraform.io/hashicorp/http\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "body": "-----BEGIN CERTIFICATE-----\nMIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF\nADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\nb24gUm9vdCBDQSAxMB4XDTE1MDUyNjAwMDAwMFoXDTM4MDExNzAwMDAwMFowOTEL\nMAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\nb3QgQ0EgMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALJ4gHHKeNXj\nca9HgFB0fW7Y14h29Jlo91ghYPl0hAEvrAIthtOgQ3pOsqTQNroBvo3bSMgHFzZM\n9O6II8c+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw\nIFAGbHrQgLKm+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6\nVOujw5H5SNz/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L\n93FcXmn/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm\njgSubJrIqg0CAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAYYwHQYDVR0OBBYEFIQYzIU07LwMlJQuCFmcx7IQTgoIMA0GCSqGSIb3DQEBCwUA\nA4IBAQCY8jdaQZChGsV2USggNiMOruYou6r4lK5IpDB/G/wkjUu0yKGX9rbxenDI\nU5PMCCjjmCXPI6T53iHTfIUJrU6adTrCC2qJeHZERxhlbI1Bjjt/msv0tadQ1wUs\nN+gDS63pYaACbvXy8MWy7Vu33PqUXHeeE6V/Uq2V8viTO96LXFvKWlJbYK8U90vv\no/ufQJVtMVT8QtPHRh8jrdkPSHCa2XV4cdFyQzR1bldZwgJcJmApzyMZFo6IQ6XU\n5MsI+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy\nrqXRfboQnoZsG4q5WTP468SQvvG5\n-----END CERTIFICATE-----\n",
+            "ca_cert_pem": null,
+            "client_cert_pem": null,
+            "client_key_pem": null,
+            "id": "https://www.amazontrust.com/repository/AmazonRootCA1.pem",
+            "insecure": null,
+            "method": null,
+            "request_body": null,
+            "request_headers": null,
+            "request_timeout_ms": null,
+            "response_body": "-----BEGIN CERTIFICATE-----\nMIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF\nADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\nb24gUm9vdCBDQSAxMB4XDTE1MDUyNjAwMDAwMFoXDTM4MDExNzAwMDAwMFowOTEL\nMAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\nb3QgQ0EgMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALJ4gHHKeNXj\nca9HgFB0fW7Y14h29Jlo91ghYPl0hAEvrAIthtOgQ3pOsqTQNroBvo3bSMgHFzZM\n9O6II8c+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw\nIFAGbHrQgLKm+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6\nVOujw5H5SNz/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L\n93FcXmn/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm\njgSubJrIqg0CAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAYYwHQYDVR0OBBYEFIQYzIU07LwMlJQuCFmcx7IQTgoIMA0GCSqGSIb3DQEBCwUA\nA4IBAQCY8jdaQZChGsV2USggNiMOruYou6r4lK5IpDB/G/wkjUu0yKGX9rbxenDI\nU5PMCCjjmCXPI6T53iHTfIUJrU6adTrCC2qJeHZERxhlbI1Bjjt/msv0tadQ1wUs\nN+gDS63pYaACbvXy8MWy7Vu33PqUXHeeE6V/Uq2V8viTO96LXFvKWlJbYK8U90vv\no/ufQJVtMVT8QtPHRh8jrdkPSHCa2XV4cdFyQzR1bldZwgJcJmApzyMZFo6IQ6XU\n5MsI+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy\nrqXRfboQnoZsG4q5WTP468SQvvG5\n-----END CERTIFICATE-----\n",
+            "response_body_base64": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURRVENDQWltZ0F3SUJBZ0lUQm15Zno1bS9qQW81NHZCNGlrUG1salpieWpBTkJna3Foa2lHOXcwQkFRc0YKQURBNU1Rc3dDUVlEVlFRR0V3SlZVekVQTUEwR0ExVUVDaE1HUVcxaGVtOXVNUmt3RndZRFZRUURFeEJCYldGNgpiMjRnVW05dmRDQkRRU0F4TUI0WERURTFNRFV5TmpBd01EQXdNRm9YRFRNNE1ERXhOekF3TURBd01Gb3dPVEVMCk1Ba0dBMVVFQmhNQ1ZWTXhEekFOQmdOVkJBb1RCa0Z0WVhwdmJqRVpNQmNHQTFVRUF4TVFRVzFoZW05dUlGSnYKYjNRZ1EwRWdNVENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMSjRnSEhLZU5YagpjYTlIZ0ZCMGZXN1kxNGgyOUpsbzkxZ2hZUGwwaEFFdnJBSXRodE9nUTNwT3NxVFFOcm9Cdm8zYlNNZ0hGelpNCjlPNklJOGMrNnpmMXRSbjRTV2l3M3RlNWRqZ2RZWjZrL29JMnBlVktWdVJGNGZuOXRCYjZkTnFjbXpVNUwvcXcKSUZBR2JIclFnTEttK2Evc1J4bVBVRGdIM0tLSE9WajR1dFdwK1Vobk1KYnVsSGhlYjRtalVjQXdobWFoUldhNgpWT3VqdzVINVNOei8wZWd3TFgwdGRIQTExNGdrOTU3RVdXNjdjNGNYOGpKR0tMaEQrcmNkcXNxMDhwOGtEaTFMCjkzRmNYbW4vNnBVQ3l6aUtybEE0Yjl2N0xXSWJ4Y2NlVk9GMzRHZklENXlISTlZL1FDQi9JSURFZ0V3K095UW0KamdTdWJKcklxZzBDQXdFQUFhTkNNRUF3RHdZRFZSMFRBUUgvQkFVd0F3RUIvekFPQmdOVkhROEJBZjhFQkFNQwpBWVl3SFFZRFZSME9CQllFRklRWXpJVTA3THdNbEpRdUNGbWN4N0lRVGdvSU1BMEdDU3FHU0liM0RRRUJDd1VBCkE0SUJBUUNZOGpkYVFaQ2hHc1YyVVNnZ05pTU9ydVlvdTZyNGxLNUlwREIvRy93a2pVdTB5S0dYOXJieGVuREkKVTVQTUNDamptQ1hQSTZUNTNpSFRmSVVKclU2YWRUckNDMnFKZUhaRVJ4aGxiSTFCamp0L21zdjB0YWRRMXdVcwpOK2dEUzYzcFlhQUNidlh5OE1XeTdWdTMzUHFVWEhlZUU2Vi9VcTJWOHZpVE85NkxYRnZLV2xKYllLOFU5MHZ2Cm8vdWZRSlZ0TVZUOFF0UEhSaDhqcmRrUFNIQ2EyWFY0Y2RGeVF6UjFibGRad2dKY0ptQXB6eU1aRm82SVE2WFUKNU1zSSt5TVJRK2hES1hKaW9hbGRYZ2pVa0s2NDJNNFV3dEJWOG9iMnhKTkRkMlpod0xub1FkZVhlR0FEYmtweQpycVhSZmJvUW5vWnNHNHE1V1RQNDY4U1F2dkc1Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+            "response_headers": {
+              "Accept-Ranges": "bytes",
+              "Age": "58965",
+              "Cache-Control": "no-store, no-cache",
+              "Content-Length": "1188",
+              "Content-Type": "text/plain; charset=US-ASCII",
+              "Date": "Tue, 02 Jun 2026 08:08:09 GMT",
+              "Etag": "\"7095142f080d1d25221eec161ff14223\"",
+              "Last-Modified": "Wed, 27 May 2026 14:01:18 GMT",
+              "Referrer-Policy": "strict-origin-when-cross-origin",
+              "Server": "AmazonS3",
+              "Strict-Transport-Security": "max-age=47304000; includeSubDomains",
+              "Vary": "Accept-Encoding",
+              "Via": "1.1 28e80d7d1d201e4641da23c4272b5b68.cloudfront.net (CloudFront)",
+              "X-Amz-Cf-Id": "Qwlzqu3M_hjQlnKO3wYxUtpn4h6ZcI2lU3owk48zeuCSeWtJhXQ0Lw==",
+              "X-Amz-Cf-Pop": "BOG51-P3",
+              "X-Amz-Expiration": "expiry-date=\"Wed, 28 Nov 2029 00:00:00 GMT\", rule-id=\"MTNiZjVkM2YtMTYzZC00NGRjLWIwOGMtNmE0ZmMxY2E5MWEw\"",
+              "X-Amz-Server-Side-Encryption": "AES256",
+              "X-Amz-Version-Id": "O3CnXDB2Z0_ELe3rtyJ2kJrzDzUhd.1c",
+              "X-Cache": "Hit from cloudfront",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "DENY"
+            },
+            "retry": null,
+            "status_code": 200,
+            "url": "https://www.amazontrust.com/repository/AmazonRootCA1.pem"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "module": "module.database",
+      "mode": "managed",
+      "type": "aws_dynamodb_table",
+      "name": "sensor_data",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:dynamodb:us-east-1:793805163219:table/SensorData-lab",
+            "attribute": [
+              {
+                "name": "sensor_id",
+                "type": "S"
+              },
+              {
+                "name": "timestamp",
+                "type": "S"
+              }
+            ],
+            "billing_mode": "PAY_PER_REQUEST",
+            "deletion_protection_enabled": false,
+            "global_secondary_index": [],
+            "hash_key": "sensor_id",
+            "id": "SensorData-lab",
+            "import_table": [],
+            "local_secondary_index": [],
+            "name": "SensorData-lab",
+            "on_demand_throughput": [],
+            "point_in_time_recovery": [
+              {
+                "enabled": false,
+                "recovery_period_in_days": 0
+              }
+            ],
+            "range_key": "timestamp",
+            "read_capacity": 0,
+            "replica": [],
+            "restore_date_time": null,
+            "restore_source_name": null,
+            "restore_source_table_arn": null,
+            "restore_to_latest_time": null,
+            "server_side_encryption": [],
+            "stream_arn": "arn:aws:dynamodb:us-east-1:793805163219:table/SensorData-lab/stream/2026-06-03T22:42:53.054",
+            "stream_enabled": true,
+            "stream_label": "2026-06-03T22:42:53.054",
+            "stream_view_type": "NEW_IMAGE",
+            "table_class": "STANDARD",
+            "tags": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "timeouts": null,
+            "ttl": [
+              {
+                "attribute_name": "",
+                "enabled": false
+              }
+            ],
+            "write_capacity": 0
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.database",
+      "mode": "managed",
+      "type": "aws_dynamodb_table",
+      "name": "sensors",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:dynamodb:us-east-1:793805163219:table/Sensors-lab",
+            "attribute": [
+              {
+                "name": "sensor_id",
+                "type": "S"
+              }
+            ],
+            "billing_mode": "PAY_PER_REQUEST",
+            "deletion_protection_enabled": false,
+            "global_secondary_index": [],
+            "hash_key": "sensor_id",
+            "id": "Sensors-lab",
+            "import_table": [],
+            "local_secondary_index": [],
+            "name": "Sensors-lab",
+            "on_demand_throughput": [],
+            "point_in_time_recovery": [
+              {
+                "enabled": false,
+                "recovery_period_in_days": 0
+              }
+            ],
+            "range_key": null,
+            "read_capacity": 0,
+            "replica": [],
+            "restore_date_time": null,
+            "restore_source_name": null,
+            "restore_source_table_arn": null,
+            "restore_to_latest_time": null,
+            "server_side_encryption": [],
+            "stream_arn": "",
+            "stream_enabled": false,
+            "stream_label": "",
+            "stream_view_type": "",
+            "table_class": "STANDARD",
+            "tags": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "timeouts": null,
+            "ttl": [
+              {
+                "attribute_name": "",
+                "enabled": false
+              }
+            ],
+            "write_capacity": 0
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.ecr",
+      "mode": "managed",
+      "type": "aws_ecr_repository",
+      "name": "website_repo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ecr:us-east-1:793805163219:repository/iot-edge-repo-lab",
+            "encryption_configuration": [
+              {
+                "encryption_type": "AES256",
+                "kms_key": ""
+              }
+            ],
+            "force_delete": true,
+            "id": "iot-edge-repo-lab",
+            "image_scanning_configuration": [
+              {
+                "scan_on_push": true
+              }
+            ],
+            "image_tag_mutability": "MUTABLE",
+            "name": "iot-edge-repo-lab",
+            "registry_id": "793805163219",
+            "repository_url": "793805163219.dkr.ecr.us-east-1.amazonaws.com/iot-edge-repo-lab",
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-ecr"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-ecr"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "module": "module.ecs",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "ecs_logs",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:us-east-1:793805163219:log-group:/ecs/iot-edge",
+            "id": "/ecs/iot-edge",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/ecs/iot-edge",
+            "name_prefix": "",
+            "retention_in_days": 7,
+            "skip_destroy": false,
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-logs"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-logs"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.ecs",
+      "mode": "managed",
+      "type": "aws_ecs_cluster",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ecs:us-east-1:793805163219:cluster/iot-edge-cluster",
+            "configuration": [],
+            "id": "arn:aws:ecs:us-east-1:793805163219:cluster/iot-edge-cluster",
+            "name": "iot-edge-cluster",
+            "service_connect_defaults": [],
+            "setting": [
+              {
+                "name": "containerInsights",
+                "value": "enabled"
+              }
+            ],
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-cluster"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-cluster"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.ecs",
+      "mode": "managed",
+      "type": "aws_ecs_task_definition",
+      "name": "app",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ecs:us-east-1:793805163219:task-definition/iot-edge-app:1",
+            "arn_without_revision": "arn:aws:ecs:us-east-1:793805163219:task-definition/iot-edge-app",
+            "container_definitions": "[{\"environment\":[{\"name\":\"AWS_REGION\",\"value\":\"us-east-1\"},{\"name\":\"DB_HOST\",\"value\":\"iot-postgres.cy60tnifmdu3.us-east-1.rds.amazonaws.com\"},{\"name\":\"DB_NAME\",\"value\":\"iot\"},{\"name\":\"DB_PASSWORD\",\"value\":\"Password123!\"},{\"name\":\"DB_USER\",\"value\":\"postgres\"},{\"name\":\"SENSORS_TABLE\",\"value\":\"Sensors-lab\"},{\"name\":\"SENSOR_DATA_TABLE\",\"value\":\"SensorData-lab\"}],\"essential\":true,\"image\":\"793805163219.dkr.ecr.us-east-1.amazonaws.com/iot-edge-repo-lab:latest\",\"logConfiguration\":{\"logDriver\":\"awslogs\",\"options\":{\"awslogs-stream-prefix\":\"ecs\",\"awslogs-group\":\"/ecs/iot-edge\",\"awslogs-region\":\"us-east-1\"}},\"mountPoints\":[],\"name\":\"app\",\"portMappings\":[{\"containerPort\":8000,\"hostPort\":8000,\"protocol\":\"tcp\"}],\"systemControls\":[],\"volumesFrom\":[]}]",
+            "cpu": "256",
+            "enable_fault_injection": false,
+            "ephemeral_storage": [],
+            "execution_role_arn": "arn:aws:iam::793805163219:role/LabRole",
+            "family": "iot-edge-app",
+            "id": "iot-edge-app",
+            "inference_accelerator": [],
+            "ipc_mode": "",
+            "memory": "512",
+            "network_mode": "awsvpc",
+            "pid_mode": "",
+            "placement_constraints": [],
+            "proxy_configuration": [],
+            "requires_compatibilities": [
+              "FARGATE"
+            ],
+            "revision": 1,
+            "runtime_platform": [],
+            "skip_destroy": false,
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-task-def"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-task-def"
+            },
+            "task_role_arn": "arn:aws:iam::793805163219:role/LabRole",
+            "track_latest": false,
+            "volume": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.database.aws_dynamodb_table.sensor_data",
+            "module.database.aws_dynamodb_table.sensors",
+            "module.ecr.aws_ecr_repository.website_repo",
+            "module.ecs.aws_cloudwatch_log_group.ecs_logs",
+            "module.postgres.aws_db_instance.postgres",
+            "module.postgres.aws_db_subnet_group.postgres",
+            "module.postgres.aws_security_group.postgres"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "aws_iot_certificate",
+      "name": "cert",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "active": true,
+            "arn": "arn:aws:iot:us-east-1:793805163219:cert/bcf32ef9b3824435edf842388a904b5ec2e4e310b5ed75928ab86cdd4ecc7f39",
+            "ca_certificate_id": "",
+            "ca_pem": null,
+            "certificate_pem": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUUq6srqc21ZNCbuuOGuBcIbAzqzswDQYJKoZIhvcNAQEL\nBQAwTTFLMEkGA1UECwxCQW1hem9uIFdlYiBTZXJ2aWNlcyBPPUFtYXpvbi5jb20g\nSW5jLiBMPVNlYXR0bGUgU1Q9V2FzaGluZ3RvbiBDPVVTMB4XDTI2MDYwMzIyNDA1\nM1oXDTQ5MTIzMTIzNTk1OVowHjEcMBoGA1UEAwwTQVdTIElvVCBDZXJ0aWZpY2F0\nZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALMxCvasQLEMRmZL52/V\nyINjKMiU6x3KTjOOJa8BAm+zNiC75OjDMY9shOZ6Gys0rAq6zpCtARvgSH2cnQqm\n5sS2FWcV1DTg196fzhqWxY2sbUIfbxsutq2kd1/YmGSqzESHsxQ125Alz5sDyQ+x\nz/C8uoRfoHdUGRmIW3FO9llvdrtVhGPcNWeMdtRn5ecZJjCFLiRpkgDUyOZMwbcZ\nTHmTDGtW5bjBb9p1JajqnUCCVSczPdLRNPFzz2L/IXO+iMYtuUos1NQpmubOidPJ\nDecRr6KN6tVi76MPL1ZsA04aoAnx9uU8zE6XvkQusqQyMbohkAnUBNRPsctoj8F4\nQtcCAwEAAaNgMF4wHwYDVR0jBBgwFoAU+13VELkTwnNNZUqzzvdaplWBJwcwHQYD\nVR0OBBYEFCa7twM7pdatqKOcVA9FVsNOtT2zMAwGA1UdEwEB/wQCMAAwDgYDVR0P\nAQH/BAQDAgeAMA0GCSqGSIb3DQEBCwUAA4IBAQAPlTOhMr38F//bpjrtk3rknU3z\noG1sQ8IQ+Tdvyr5PJIwPO/BysAcEsheGUuZNgZ1kPFy2Szqv05onfx6tXBCgPr7W\n5xuv4iMZeWh0vMbTkfQZ2+1jx3Ix+2x3jsrjMCiiya36BRisj4jjEIyALkFkxqgB\nxV9lLDQmXyMokDcRiR161sWgXrgVsxUZcVTJF68qicjOnkz6doOtYLWfFpoW7mOW\nCI9+MVZGoyL0vbJjJP45jdPARz/k4SZH96B7Ftcn0srOv5Eqk2kuGRqi1Ik+SkL0\nmnMSQ4bUGNrROpCsqs6cLsw62gfhtEkgpquVysAdqNWsAVbV1U+5muYIkMjV\n-----END CERTIFICATE-----\n",
+            "csr": null,
+            "id": "bcf32ef9b3824435edf842388a904b5ec2e4e310b5ed75928ab86cdd4ecc7f39",
+            "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAszEK9qxAsQxGZkvnb9XIg2MoyJTrHcpOM44lrwECb7M2ILvk\n6MMxj2yE5nobKzSsCrrOkK0BG+BIfZydCqbmxLYVZxXUNODX3p/OGpbFjaxtQh9v\nGy62raR3X9iYZKrMRIezFDXbkCXPmwPJD7HP8Ly6hF+gd1QZGYhbcU72WW92u1WE\nY9w1Z4x21Gfl5xkmMIUuJGmSANTI5kzBtxlMeZMMa1bluMFv2nUlqOqdQIJVJzM9\n0tE08XPPYv8hc76Ixi25SizU1Cma5s6J08kN5xGvoo3q1WLvow8vVmwDThqgCfH2\n5TzMTpe+RC6ypDIxuiGQCdQE1E+xy2iPwXhC1wIDAQABAoIBAQCF0qqNbjciAjjR\nTP6a1t3YwcVDh3PP27Zrak1aVTaslPpnl+tsqdnpcvIN7kM8ESorGTgLdCjP2MBK\njxv5SIwvfIyfX/4LP5/38wDJerAvDgbKyw7/DfP/2kQMoIWvKJ9EztM+1LoU/Sf+\nbOVLg0/4SfpBwejlNTlJiDxCcuYoA4ZSz1V2ZbychDZYjCXH6V954CN2358/ib9E\n91ciKhCf5vyjWyOHbhhisFipNaeVFzX6CxnMuxWS6tbT9hxSCwnmppPGHXN/uZ/+\npL9cHAGX9oEGpU+hLWcsuJRLqBlZqdYBoor6Y3XAo+ZVNEj7jIo1DABpFKW+tG3k\nVp7u6fKBAoGBAN6VIX6TODHo2xV/TSBoNyQcFfeIdnrf5zG/IV7oh1OYueknXNLh\nJXotR2lgQqkMAXh2LHeH/uZTxWYJZtCGv3/Ea6uuTF9FsqAFXw30FBH2DztlVRvw\nCgnO8RbFCOjwauW2dRZGkbf80xILsUq+uaDeFcVoTpQAC5PcEiZclmwdAoGBAM4Y\nMqP0URBJjApl6afZWnq9fDLj55fYKBgfRK4TcFCyslMqE6VdlZmzKJI5A+wdaXST\n5cgXqbTkeo7ZJpVW5/VqR/t3TIh8EY1fx1296+UoXku/0y3DeCc4IBlh9IaQjUAV\nGI3JBbZRIcfKN8mPfrqHEh+MEiAjC+WRP8yI57CDAoGAEOII71vlWEvMSl4kkH+3\nJwMGW4c7TWisVaaktlk24o1kFJ5KuSggupqynviRNddWSTfVeZ+UIw5Zm7q81LZT\n0jIo5JXM7zEPMnoV0q4f05jxYNT31q2nZUUQHmUFnv2VbiUfzne919HShLzkTsIW\nvG/8AMQ/qZQzTJzVt5kwQ7UCgYEAx0OkKtu9SRcjPKZ+vNgtYEE3BWlPcYQAeBo7\naGfJD21Hd5tWNWv/igUsM/zGaxOg86NP5x/h6NGEIfuZD4lgauugv2UAbXIv8lXp\nyBwqKX3Xdjv5LeUxlhHxDzmjmDvJJm1/OQ9k43scQzSkrdB9AlI4VqIyoDnidcrz\nOYohIYsCgYAZTK9ugkYXNi0/I8tD6lpVz+3K/RBABm7+eBLxCv6WRNDEdvNeebqV\nhgfrnwwdU0DnDmdA8bpkJYxPtmcBpMdbG32F3hUWbOSJHOhsuWWGp2OgE0ETX/dy\nRuCyxYRhvYXIskAhyXY5b3Udl0svgGCmF+sVAjoiW7NL+9jmz5qbvw==\n-----END RSA PRIVATE KEY-----\n",
+            "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAszEK9qxAsQxGZkvnb9XI\ng2MoyJTrHcpOM44lrwECb7M2ILvk6MMxj2yE5nobKzSsCrrOkK0BG+BIfZydCqbm\nxLYVZxXUNODX3p/OGpbFjaxtQh9vGy62raR3X9iYZKrMRIezFDXbkCXPmwPJD7HP\n8Ly6hF+gd1QZGYhbcU72WW92u1WEY9w1Z4x21Gfl5xkmMIUuJGmSANTI5kzBtxlM\neZMMa1bluMFv2nUlqOqdQIJVJzM90tE08XPPYv8hc76Ixi25SizU1Cma5s6J08kN\n5xGvoo3q1WLvow8vVmwDThqgCfH25TzMTpe+RC6ypDIxuiGQCdQE1E+xy2iPwXhC\n1wIDAQAB\n-----END PUBLIC KEY-----\n"
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "ca_pem"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "certificate_pem"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "private_key"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "public_key"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "aws_iot_policy",
+      "name": "sensor_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iot:us-east-1:793805163219:policy/EdgeGatewayPolicy-lab",
+            "default_version_id": "1",
+            "id": "EdgeGatewayPolicy-lab",
+            "name": "EdgeGatewayPolicy-lab",
+            "policy": "{\"Statement\":[{\"Action\":[\"iot:Connect\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:iot:us-east-1:793805163219:client/edge-gateway-01-lab\"]},{\"Action\":[\"iot:Publish\",\"iot:Receive\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:iot:us-east-1:793805163219:topic/lab/sensors/*\"]},{\"Action\":[\"iot:Subscribe\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:iot:us-east-1:793805163219:topicfilter/lab/sensors/*\"]}],\"Version\":\"2012-10-17\"}",
+            "tags": null,
+            "tags_all": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDAsInVwZGF0ZSI6NjAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "data.aws_caller_identity.current",
+            "data.aws_region.current",
+            "module.iot.aws_iot_thing.edge_gateway"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "aws_iot_policy_attachment",
+      "name": "att",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "EdgeGatewayPolicy-lab|arn:aws:iot:us-east-1:793805163219:cert/bcf32ef9b3824435edf842388a904b5ec2e4e310b5ed75928ab86cdd4ecc7f39",
+            "policy": "EdgeGatewayPolicy-lab",
+            "target": "arn:aws:iot:us-east-1:793805163219:cert/bcf32ef9b3824435edf842388a904b5ec2e4e310b5ed75928ab86cdd4ecc7f39"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.aws_caller_identity.current",
+            "data.aws_region.current",
+            "module.iot.aws_iot_certificate.cert",
+            "module.iot.aws_iot_policy.sensor_policy",
+            "module.iot.aws_iot_thing.edge_gateway"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "aws_iot_thing",
+      "name": "edge_gateway",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iot:us-east-1:793805163219:thing/edge-gateway-01-lab",
+            "attributes": null,
+            "default_client_id": "edge-gateway-01-lab",
+            "id": "edge-gateway-01-lab",
+            "name": "edge-gateway-01-lab",
+            "thing_type_name": "",
+            "version": 1
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "aws_iot_thing_principal_attachment",
+      "name": "att",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "edge-gateway-01-lab|arn:aws:iot:us-east-1:793805163219:cert/bcf32ef9b3824435edf842388a904b5ec2e4e310b5ed75928ab86cdd4ecc7f39",
+            "principal": "arn:aws:iot:us-east-1:793805163219:cert/bcf32ef9b3824435edf842388a904b5ec2e4e310b5ed75928ab86cdd4ecc7f39",
+            "thing": "edge-gateway-01-lab"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.iot.aws_iot_certificate.cert",
+            "module.iot.aws_iot_thing.edge_gateway"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "aws_iot_topic_rule",
+      "name": "dynamodb_rule",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iot:us-east-1:793805163219:rule/SensorDataToDynamoDB_lab",
+            "cloudwatch_alarm": [],
+            "cloudwatch_logs": [],
+            "cloudwatch_metric": [],
+            "description": "Guarda los eventos de sensores en DynamoDB",
+            "dynamodb": [],
+            "dynamodbv2": [
+              {
+                "put_item": [
+                  {
+                    "table_name": "SensorData-lab"
+                  }
+                ],
+                "role_arn": "arn:aws:iam::793805163219:role/LabRole"
+              }
+            ],
+            "elasticsearch": [],
+            "enabled": true,
+            "error_action": [],
+            "firehose": [],
+            "http": [],
+            "id": "SensorDataToDynamoDB_lab",
+            "iot_analytics": [],
+            "iot_events": [],
+            "kafka": [],
+            "kinesis": [],
+            "lambda": [],
+            "name": "SensorDataToDynamoDB_lab",
+            "republish": [],
+            "s3": [],
+            "sns": [],
+            "sql": "SELECT * FROM 'lab/sensors/data'",
+            "sql_version": "2016-03-23",
+            "sqs": [],
+            "step_functions": [],
+            "tags": null,
+            "tags_all": {},
+            "timestream": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.database.aws_dynamodb_table.sensor_data"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "aws_iot_topic_rule",
+      "name": "s3_rule",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iot:us-east-1:793805163219:rule/SensorDataToS3_lab",
+            "cloudwatch_alarm": [],
+            "cloudwatch_logs": [],
+            "cloudwatch_metric": [],
+            "description": "Guarda los eventos de sensores en S3 particionados por fecha",
+            "dynamodb": [],
+            "dynamodbv2": [],
+            "elasticsearch": [],
+            "enabled": true,
+            "error_action": [],
+            "firehose": [],
+            "http": [],
+            "id": "SensorDataToS3_lab",
+            "iot_analytics": [],
+            "iot_events": [],
+            "kafka": [],
+            "kinesis": [],
+            "lambda": [],
+            "name": "SensorDataToS3_lab",
+            "republish": [],
+            "s3": [
+              {
+                "bucket_name": "lab-iot-edge-sensor-data-e3019f3d",
+                "canned_acl": "",
+                "key": "data/year=${parse_time(\"yyyy\", timestamp())}/month=${parse_time(\"MM\", timestamp())}/day=${parse_time(\"dd\", timestamp())}/${topic(3)}_${newuuid()}.json",
+                "role_arn": "arn:aws:iam::793805163219:role/LabRole"
+              }
+            ],
+            "sns": [],
+            "sql": "SELECT * FROM 'lab/sensors/data'",
+            "sql_version": "2016-03-23",
+            "sqs": [],
+            "step_functions": [],
+            "tags": null,
+            "tags_all": {},
+            "timestream": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.storage.aws_s3_bucket.sensor_data",
+            "module.storage.random_id.id"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "certificate_pem",
+      "provider": "provider[\"registry.terraform.io/hashicorp/local\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "content": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUUq6srqc21ZNCbuuOGuBcIbAzqzswDQYJKoZIhvcNAQEL\nBQAwTTFLMEkGA1UECwxCQW1hem9uIFdlYiBTZXJ2aWNlcyBPPUFtYXpvbi5jb20g\nSW5jLiBMPVNlYXR0bGUgU1Q9V2FzaGluZ3RvbiBDPVVTMB4XDTI2MDYwMzIyNDA1\nM1oXDTQ5MTIzMTIzNTk1OVowHjEcMBoGA1UEAwwTQVdTIElvVCBDZXJ0aWZpY2F0\nZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALMxCvasQLEMRmZL52/V\nyINjKMiU6x3KTjOOJa8BAm+zNiC75OjDMY9shOZ6Gys0rAq6zpCtARvgSH2cnQqm\n5sS2FWcV1DTg196fzhqWxY2sbUIfbxsutq2kd1/YmGSqzESHsxQ125Alz5sDyQ+x\nz/C8uoRfoHdUGRmIW3FO9llvdrtVhGPcNWeMdtRn5ecZJjCFLiRpkgDUyOZMwbcZ\nTHmTDGtW5bjBb9p1JajqnUCCVSczPdLRNPFzz2L/IXO+iMYtuUos1NQpmubOidPJ\nDecRr6KN6tVi76MPL1ZsA04aoAnx9uU8zE6XvkQusqQyMbohkAnUBNRPsctoj8F4\nQtcCAwEAAaNgMF4wHwYDVR0jBBgwFoAU+13VELkTwnNNZUqzzvdaplWBJwcwHQYD\nVR0OBBYEFCa7twM7pdatqKOcVA9FVsNOtT2zMAwGA1UdEwEB/wQCMAAwDgYDVR0P\nAQH/BAQDAgeAMA0GCSqGSIb3DQEBCwUAA4IBAQAPlTOhMr38F//bpjrtk3rknU3z\noG1sQ8IQ+Tdvyr5PJIwPO/BysAcEsheGUuZNgZ1kPFy2Szqv05onfx6tXBCgPr7W\n5xuv4iMZeWh0vMbTkfQZ2+1jx3Ix+2x3jsrjMCiiya36BRisj4jjEIyALkFkxqgB\nxV9lLDQmXyMokDcRiR161sWgXrgVsxUZcVTJF68qicjOnkz6doOtYLWfFpoW7mOW\nCI9+MVZGoyL0vbJjJP45jdPARz/k4SZH96B7Ftcn0srOv5Eqk2kuGRqi1Ik+SkL0\nmnMSQ4bUGNrROpCsqs6cLsw62gfhtEkgpquVysAdqNWsAVbV1U+5muYIkMjV\n-----END CERTIFICATE-----\n",
+            "content_base64": null,
+            "content_base64sha256": "1DwW3QJ25SH+/7bJSsJJgS50ZDK9525WK0aHiATrR74=",
+            "content_base64sha512": "aN7UQnVBt6U+XNDeuuks3OLbc5HOrlpOClZtG4HaMnPr2O4SN9YDC8r+TdrEHtGiichU014seaiQwyuUR+hqFw==",
+            "content_md5": "146335c26a6ca755299755747e0363b5",
+            "content_sha1": "3b8138f67b2945227d72dd4f821931431d9d0579",
+            "content_sha256": "d43c16dd0276e521feffb6c94ac249812e746432bde76e562b46878804eb47be",
+            "content_sha512": "68ded4427541b7a53e5cd0debae92cdce2db7391ceae5a4e0a566d1b81da3273ebd8ee1237d6030bcafe4ddac41ed1a289c854d35e2c79a890c32b9447e86a17",
+            "directory_permission": "0777",
+            "file_permission": "0777",
+            "filename": "./../edge_gateway/certs/certificate.pem.crt",
+            "id": "3b8138f67b2945227d72dd4f821931431d9d0579",
+            "sensitive_content": null,
+            "source": null
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "content"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "sensitive_content"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "module.iot.aws_iot_certificate.cert"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "mosquitto_conf",
+      "provider": "provider[\"registry.terraform.io/hashicorp/local\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "content": "# Configuración del servidor local Mosquitto\nlistener 1883 0.0.0.0\nallow_anonymous true\n\n# Configuración del Bridge hacia AWS IoT Core\nconnection awsiot\naddress aoufxseucincb-ats.iot.us-east-1.amazonaws.com:8883\n\n# Mapeo de tópicos: local -\u003e remoto\ntopic lab/sensors/data out 1 \"\" \"\"\n\nbridge_protocol_version mqttv311\nbridge_insecure false\n\ncleansession true\nclientid edge-gateway-01-lab\nstart_type automatic\nnotifications false\nkeepalive_interval 60\n\n# Certificados TLS para la conexión con AWS\nbridge_cafile /mosquitto/certs/AmazonRootCA1.pem\nbridge_certfile /mosquitto/certs/certificate.pem.crt\nbridge_keyfile /mosquitto/certs/private.pem.key\n",
+            "content_base64": null,
+            "content_base64sha256": "UWV6SGh9wfSGKqC+l8S59bLuH/Nxi0mkrFZi5b4hjZ0=",
+            "content_base64sha512": "tl2R1al8D5MomxzQ8hmWOGz6JYEjBAg29funWfbag91swrPlDdrW0lFDv8quuq0/ravqquNCzTkIk40lqMIA/Q==",
+            "content_md5": "cbf6b39ab9b2e360f9f11c1b7b241cb7",
+            "content_sha1": "2195edc484904a1c8b58bc9604da7b628dd7c704",
+            "content_sha256": "51657a48687dc1f4862aa0be97c4b9f5b2ee1ff3718b49a4ac5662e5be218d9d",
+            "content_sha512": "b65d91d5a97c0f93289b1cd0f21996386cfa258123040836f5fba759f6da83dd6cc2b3e50ddad6d25143bfcaaebaad3fadabeaaae342cd3908938d25a8c200fd",
+            "directory_permission": "0777",
+            "file_permission": "0777",
+            "filename": "./../edge_gateway/mosquitto.conf",
+            "id": "2195edc484904a1c8b58bc9604da7b628dd7c704",
+            "sensitive_content": null,
+            "source": null
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "sensitive_content"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "data.aws_iot_endpoint.iot_endpoint",
+            "module.iot.aws_iot_thing.edge_gateway"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "private_key",
+      "provider": "provider[\"registry.terraform.io/hashicorp/local\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "content": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAszEK9qxAsQxGZkvnb9XIg2MoyJTrHcpOM44lrwECb7M2ILvk\n6MMxj2yE5nobKzSsCrrOkK0BG+BIfZydCqbmxLYVZxXUNODX3p/OGpbFjaxtQh9v\nGy62raR3X9iYZKrMRIezFDXbkCXPmwPJD7HP8Ly6hF+gd1QZGYhbcU72WW92u1WE\nY9w1Z4x21Gfl5xkmMIUuJGmSANTI5kzBtxlMeZMMa1bluMFv2nUlqOqdQIJVJzM9\n0tE08XPPYv8hc76Ixi25SizU1Cma5s6J08kN5xGvoo3q1WLvow8vVmwDThqgCfH2\n5TzMTpe+RC6ypDIxuiGQCdQE1E+xy2iPwXhC1wIDAQABAoIBAQCF0qqNbjciAjjR\nTP6a1t3YwcVDh3PP27Zrak1aVTaslPpnl+tsqdnpcvIN7kM8ESorGTgLdCjP2MBK\njxv5SIwvfIyfX/4LP5/38wDJerAvDgbKyw7/DfP/2kQMoIWvKJ9EztM+1LoU/Sf+\nbOVLg0/4SfpBwejlNTlJiDxCcuYoA4ZSz1V2ZbychDZYjCXH6V954CN2358/ib9E\n91ciKhCf5vyjWyOHbhhisFipNaeVFzX6CxnMuxWS6tbT9hxSCwnmppPGHXN/uZ/+\npL9cHAGX9oEGpU+hLWcsuJRLqBlZqdYBoor6Y3XAo+ZVNEj7jIo1DABpFKW+tG3k\nVp7u6fKBAoGBAN6VIX6TODHo2xV/TSBoNyQcFfeIdnrf5zG/IV7oh1OYueknXNLh\nJXotR2lgQqkMAXh2LHeH/uZTxWYJZtCGv3/Ea6uuTF9FsqAFXw30FBH2DztlVRvw\nCgnO8RbFCOjwauW2dRZGkbf80xILsUq+uaDeFcVoTpQAC5PcEiZclmwdAoGBAM4Y\nMqP0URBJjApl6afZWnq9fDLj55fYKBgfRK4TcFCyslMqE6VdlZmzKJI5A+wdaXST\n5cgXqbTkeo7ZJpVW5/VqR/t3TIh8EY1fx1296+UoXku/0y3DeCc4IBlh9IaQjUAV\nGI3JBbZRIcfKN8mPfrqHEh+MEiAjC+WRP8yI57CDAoGAEOII71vlWEvMSl4kkH+3\nJwMGW4c7TWisVaaktlk24o1kFJ5KuSggupqynviRNddWSTfVeZ+UIw5Zm7q81LZT\n0jIo5JXM7zEPMnoV0q4f05jxYNT31q2nZUUQHmUFnv2VbiUfzne919HShLzkTsIW\nvG/8AMQ/qZQzTJzVt5kwQ7UCgYEAx0OkKtu9SRcjPKZ+vNgtYEE3BWlPcYQAeBo7\naGfJD21Hd5tWNWv/igUsM/zGaxOg86NP5x/h6NGEIfuZD4lgauugv2UAbXIv8lXp\nyBwqKX3Xdjv5LeUxlhHxDzmjmDvJJm1/OQ9k43scQzSkrdB9AlI4VqIyoDnidcrz\nOYohIYsCgYAZTK9ugkYXNi0/I8tD6lpVz+3K/RBABm7+eBLxCv6WRNDEdvNeebqV\nhgfrnwwdU0DnDmdA8bpkJYxPtmcBpMdbG32F3hUWbOSJHOhsuWWGp2OgE0ETX/dy\nRuCyxYRhvYXIskAhyXY5b3Udl0svgGCmF+sVAjoiW7NL+9jmz5qbvw==\n-----END RSA PRIVATE KEY-----\n",
+            "content_base64": null,
+            "content_base64sha256": "UYNfFUEvG05cqbLYs18K4FtF+AUk9a2+ISS4JxwvGlg=",
+            "content_base64sha512": "GRgaTsJjyrlIxDDWd1a6Ob+0YuBCZRQ06RCiPSUq6hARVhJokXcREYzeFLf61HDFqvBbCMUOYhClEfBLiAbYzg==",
+            "content_md5": "399a56058c5819f590e74877a33e706a",
+            "content_sha1": "327088889d5b353528d3c647639de5c1b27fa4c2",
+            "content_sha256": "51835f15412f1b4e5ca9b2d8b35f0ae05b45f80524f5adbe2124b8271c2f1a58",
+            "content_sha512": "19181a4ec263cab948c430d67756ba39bfb462e042651434e910a23d252aea1011561268917711118cde14b7fad470c5aaf05b08c50e6210a511f04b8806d8ce",
+            "directory_permission": "0777",
+            "file_permission": "0777",
+            "filename": "./../edge_gateway/certs/private.pem.key",
+            "id": "327088889d5b353528d3c647639de5c1b27fa4c2",
+            "sensitive_content": null,
+            "source": null
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "content"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "sensitive_content"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "module.iot.aws_iot_certificate.cert"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "public_key",
+      "provider": "provider[\"registry.terraform.io/hashicorp/local\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "content": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAszEK9qxAsQxGZkvnb9XI\ng2MoyJTrHcpOM44lrwECb7M2ILvk6MMxj2yE5nobKzSsCrrOkK0BG+BIfZydCqbm\nxLYVZxXUNODX3p/OGpbFjaxtQh9vGy62raR3X9iYZKrMRIezFDXbkCXPmwPJD7HP\n8Ly6hF+gd1QZGYhbcU72WW92u1WEY9w1Z4x21Gfl5xkmMIUuJGmSANTI5kzBtxlM\neZMMa1bluMFv2nUlqOqdQIJVJzM90tE08XPPYv8hc76Ixi25SizU1Cma5s6J08kN\n5xGvoo3q1WLvow8vVmwDThqgCfH25TzMTpe+RC6ypDIxuiGQCdQE1E+xy2iPwXhC\n1wIDAQAB\n-----END PUBLIC KEY-----\n",
+            "content_base64": null,
+            "content_base64sha256": "yS30S0ICPMMFTuxwFKMTlmixKS4sZeRhIi1VbBNHpVA=",
+            "content_base64sha512": "hHowQjEcGvs0UYdholCZ9yT//PVEHWzMmSxXqINwecsf5qKAWJAaOZsUXPLc2jmnlyy95xAOaNXYhRPSA6/eSg==",
+            "content_md5": "3b40d440dcbbb6876a05aef54fea8d93",
+            "content_sha1": "5cccbf59a1e78602cfc98818b88cd5a9e0b78a6f",
+            "content_sha256": "c92df44b42023cc3054eec7014a3139668b1292e2c65e461222d556c1347a550",
+            "content_sha512": "847a3042311c1afb34518761a25099f724fffcf5441d6ccc992c57a8837079cb1fe6a28058901a399b145cf2dcda39a7972cbde7100e68d5d88513d203afde4a",
+            "directory_permission": "0777",
+            "file_permission": "0777",
+            "filename": "./../edge_gateway/certs/public.pem.key",
+            "id": "5cccbf59a1e78602cfc98818b88cd5a9e0b78a6f",
+            "sensitive_content": null,
+            "source": null
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "content"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "sensitive_content"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "module.iot.aws_iot_certificate.cert"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iot",
+      "mode": "managed",
+      "type": "local_file",
+      "name": "root_ca",
+      "provider": "provider[\"registry.terraform.io/hashicorp/local\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "content": "-----BEGIN CERTIFICATE-----\nMIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF\nADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\nb24gUm9vdCBDQSAxMB4XDTE1MDUyNjAwMDAwMFoXDTM4MDExNzAwMDAwMFowOTEL\nMAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\nb3QgQ0EgMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALJ4gHHKeNXj\nca9HgFB0fW7Y14h29Jlo91ghYPl0hAEvrAIthtOgQ3pOsqTQNroBvo3bSMgHFzZM\n9O6II8c+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw\nIFAGbHrQgLKm+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6\nVOujw5H5SNz/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L\n93FcXmn/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm\njgSubJrIqg0CAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAYYwHQYDVR0OBBYEFIQYzIU07LwMlJQuCFmcx7IQTgoIMA0GCSqGSIb3DQEBCwUA\nA4IBAQCY8jdaQZChGsV2USggNiMOruYou6r4lK5IpDB/G/wkjUu0yKGX9rbxenDI\nU5PMCCjjmCXPI6T53iHTfIUJrU6adTrCC2qJeHZERxhlbI1Bjjt/msv0tadQ1wUs\nN+gDS63pYaACbvXy8MWy7Vu33PqUXHeeE6V/Uq2V8viTO96LXFvKWlJbYK8U90vv\no/ufQJVtMVT8QtPHRh8jrdkPSHCa2XV4cdFyQzR1bldZwgJcJmApzyMZFo6IQ6XU\n5MsI+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy\nrqXRfboQnoZsG4q5WTP468SQvvG5\n-----END CERTIFICATE-----\n",
+            "content_base64": null,
+            "content_base64sha256": "LEOVLungAP8qzE4u0Il8CnKtX6csPZNOgXQcvVTwW9E=",
+            "content_base64sha512": "ZOYtBBTjk5FVFK3Klt90lzwrH/N/CTckja740XJCDaFzK8PMpcfiDk8yGPJhF7lva7Gms6r4rxjCk3Gu7XYXkQ==",
+            "content_md5": "7095142f080d1d25221eec161ff14223",
+            "content_sha1": "f0d2d251ef5ee84b8e05d8012056a1495fcf34b3",
+            "content_sha256": "2c43952ee9e000ff2acc4e2ed0897c0a72ad5fa72c3d934e81741cbd54f05bd1",
+            "content_sha512": "64e62d0414e393915514adca96df74973c2b1ff37f0937248daef8d172420da1732bc3cca5c7e20e4f3218f26117b96f6bb1a6b3aaf8af18c29371aeed761791",
+            "directory_permission": "0777",
+            "file_permission": "0777",
+            "filename": "./../edge_gateway/certs/AmazonRootCA1.pem",
+            "id": "f0d2d251ef5ee84b8e05d8012056a1495fcf34b3",
+            "sensitive_content": null,
+            "source": null
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "sensitive_content"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "data.http.root_ca"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda",
+      "mode": "managed",
+      "type": "aws_lambda_event_source_mapping",
+      "name": "sensor_stream",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "amazon_managed_kafka_event_source_config": [],
+            "arn": "arn:aws:lambda:us-east-1:793805163219:event-source-mapping:f5d0cb2a-976d-4262-af78-46d60d11faf2",
+            "batch_size": 1,
+            "bisect_batch_on_function_error": false,
+            "destination_config": [
+              {
+                "on_failure": [
+                  {
+                    "destination_arn": null
+                  }
+                ]
+              }
+            ],
+            "document_db_event_source_config": [],
+            "enabled": true,
+            "event_source_arn": "arn:aws:dynamodb:us-east-1:793805163219:table/SensorData-lab/stream/2026-06-03T22:42:53.054",
+            "filter_criteria": [],
+            "function_arn": "arn:aws:lambda:us-east-1:793805163219:function:sensor-catalog-updater",
+            "function_name": "arn:aws:lambda:us-east-1:793805163219:function:sensor-catalog-updater",
+            "function_response_types": null,
+            "id": "f5d0cb2a-976d-4262-af78-46d60d11faf2",
+            "kms_key_arn": "",
+            "last_modified": "2026-06-03T22:43:00Z",
+            "last_processing_result": "No records processed",
+            "maximum_batching_window_in_seconds": 0,
+            "maximum_record_age_in_seconds": -1,
+            "maximum_retry_attempts": -1,
+            "metrics_config": [],
+            "parallelization_factor": 1,
+            "provisioned_poller_config": [],
+            "queues": null,
+            "scaling_config": [],
+            "self_managed_event_source": [],
+            "self_managed_kafka_event_source_config": [],
+            "source_access_configuration": [],
+            "starting_position": "LATEST",
+            "starting_position_timestamp": "",
+            "state": "Enabled",
+            "state_transition_reason": "User action",
+            "tags": null,
+            "tags_all": {},
+            "topics": null,
+            "tumbling_window_in_seconds": 0,
+            "uuid": "f5d0cb2a-976d-4262-af78-46d60d11faf2"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.database.aws_dynamodb_table.sensor_data",
+            "module.database.aws_dynamodb_table.sensors",
+            "module.lambda.aws_lambda_function.sensor_catalog_updater"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "history_ingestor",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:793805163219:function:history-ingestor",
+            "code_sha256": "TCpGzSeOZnXYmC1gdvzC1MMrn44JJMw3idV6lQcc6WI=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "DB_HOST": "iot-postgres.cy60tnifmdu3.us-east-1.rds.amazonaws.com",
+                  "DB_NAME": "iot",
+                  "DB_PASSWORD": "Password123!",
+                  "DB_USER": "postgres"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda/history_ingestor.zip",
+            "function_name": "history-ingestor",
+            "handler": "history_ingestor.lambda_handler",
+            "id": "history-ingestor",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:793805163219:function:history-ingestor/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2026-06-03T22:47:48.017+0000",
+            "layers": null,
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/history-ingestor",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:us-east-1:793805163219:function:history-ingestor:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:793805163219:function:history-ingestor:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": -1,
+            "role": "arn:aws:iam::793805163219:role/LabRole",
+            "runtime": "python3.12",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "TCpGzSeOZnXYmC1gdvzC1MMrn44JJMw3idV6lQcc6WI=",
+            "source_code_size": 4350800,
+            "tags": null,
+            "tags_all": {},
+            "timeout": 30,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.postgres.aws_db_instance.postgres",
+            "module.postgres.aws_db_subnet_group.postgres",
+            "module.postgres.aws_security_group.postgres"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "sensor_catalog_updater",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:793805163219:function:sensor-catalog-updater",
+            "code_sha256": "XATdPJlNrF9+15yVOplVYRuJL9l8GKa2d0BT0nqOEF8=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "SENSORS_TABLE": "Sensors-lab"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda/sensor_catalog_updater.zip",
+            "function_name": "sensor-catalog-updater",
+            "handler": "lambda_function.lambda_handler",
+            "id": "sensor-catalog-updater",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:793805163219:function:sensor-catalog-updater/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2026-06-03T22:43:07.066+0000",
+            "layers": null,
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/sensor-catalog-updater",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:us-east-1:793805163219:function:sensor-catalog-updater:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:793805163219:function:sensor-catalog-updater:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": -1,
+            "role": "arn:aws:iam::793805163219:role/LabRole",
+            "runtime": "python3.12",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "XATdPJlNrF9+15yVOplVYRuJL9l8GKa2d0BT0nqOEF8=",
+            "source_code_size": 477,
+            "tags": null,
+            "tags_all": {},
+            "timeout": 3,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.database.aws_dynamodb_table.sensors"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda",
+      "mode": "managed",
+      "type": "aws_lambda_permission",
+      "name": "allow_s3",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "history-ingestor",
+            "function_url_auth_type": null,
+            "id": "AllowExecutionFromS3",
+            "principal": "s3.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:s3:::lab-iot-edge-sensor-data-e3019f3d",
+            "statement_id": "AllowExecutionFromS3",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.lambda.aws_lambda_function.history_ingestor",
+            "module.postgres.aws_db_instance.postgres",
+            "module.postgres.aws_db_subnet_group.postgres",
+            "module.postgres.aws_security_group.postgres",
+            "module.storage.aws_s3_bucket.sensor_data",
+            "module.storage.random_id.id"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda",
+      "mode": "managed",
+      "type": "aws_s3_bucket_notification",
+      "name": "sensor_upload",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "lab-iot-edge-sensor-data-e3019f3d",
+            "eventbridge": false,
+            "id": "lab-iot-edge-sensor-data-e3019f3d",
+            "lambda_function": [
+              {
+                "events": [
+                  "s3:ObjectCreated:*"
+                ],
+                "filter_prefix": "",
+                "filter_suffix": "",
+                "id": "tf-s3-lambda-20260603224755130700000002",
+                "lambda_function_arn": "arn:aws:lambda:us-east-1:793805163219:function:history-ingestor"
+              }
+            ],
+            "queue": [],
+            "topic": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.aws_iam_role.lab_role",
+            "module.lambda.aws_lambda_function.history_ingestor",
+            "module.lambda.aws_lambda_permission.allow_s3",
+            "module.postgres.aws_db_instance.postgres",
+            "module.postgres.aws_db_subnet_group.postgres",
+            "module.postgres.aws_security_group.postgres",
+            "module.storage.aws_s3_bucket.sensor_data",
+            "module.storage.random_id.id"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "data",
+      "type": "aws_subnets",
+      "name": "default",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "filter": [
+              {
+                "name": "vpc-id",
+                "values": [
+                  "vpc-0cbd7ba556eff6982"
+                ]
+              }
+            ],
+            "id": "us-east-1",
+            "ids": [
+              "subnet-0d4fa2f11de0f7999",
+              "subnet-070f11845e6e93055",
+              "subnet-0ea07be7d85893e1c",
+              "subnet-005fc6abf08047dc3",
+              "subnet-0152b60616f793319",
+              "subnet-0ecaa869547b671d2"
+            ],
+            "tags": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "data",
+      "type": "aws_vpc",
+      "name": "default",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:793805163219:vpc/vpc-0cbd7ba556eff6982",
+            "cidr_block": "172.31.0.0/16",
+            "cidr_block_associations": [
+              {
+                "association_id": "vpc-cidr-assoc-0213cee36d9930995",
+                "cidr_block": "172.31.0.0/16",
+                "state": "associated"
+              }
+            ],
+            "default": true,
+            "dhcp_options_id": "dopt-0da76455d7c9e8d56",
+            "enable_dns_hostnames": true,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "filter": null,
+            "id": "vpc-0cbd7ba556eff6982",
+            "instance_tenancy": "default",
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "main_route_table_id": "rtb-017947e07e1bea89d",
+            "owner_id": "793805163219",
+            "state": null,
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "managed",
+      "type": "aws_lb",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_logs": [
+              {
+                "bucket": "",
+                "enabled": false,
+                "prefix": ""
+              }
+            ],
+            "arn": "arn:aws:elasticloadbalancing:us-east-1:793805163219:loadbalancer/app/iot-edge-alb/d647a6dfdd1581bd",
+            "arn_suffix": "app/iot-edge-alb/d647a6dfdd1581bd",
+            "client_keep_alive": 3600,
+            "connection_logs": [
+              {
+                "bucket": "",
+                "enabled": false,
+                "prefix": ""
+              }
+            ],
+            "customer_owned_ipv4_pool": "",
+            "desync_mitigation_mode": "defensive",
+            "dns_name": "iot-edge-alb-1845030568.us-east-1.elb.amazonaws.com",
+            "dns_record_client_routing_policy": null,
+            "drop_invalid_header_fields": false,
+            "enable_cross_zone_load_balancing": true,
+            "enable_deletion_protection": false,
+            "enable_http2": true,
+            "enable_tls_version_and_cipher_suite_headers": false,
+            "enable_waf_fail_open": false,
+            "enable_xff_client_port": false,
+            "enable_zonal_shift": false,
+            "enforce_security_group_inbound_rules_on_private_link_traffic": "",
+            "id": "arn:aws:elasticloadbalancing:us-east-1:793805163219:loadbalancer/app/iot-edge-alb/d647a6dfdd1581bd",
+            "idle_timeout": 60,
+            "internal": false,
+            "ip_address_type": "ipv4",
+            "ipam_pools": [],
+            "load_balancer_type": "application",
+            "minimum_load_balancer_capacity": [],
+            "name": "iot-edge-alb",
+            "name_prefix": "",
+            "preserve_host_header": false,
+            "security_groups": [
+              "sg-08927cb7e99df5d1c"
+            ],
+            "subnet_mapping": [
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-005fc6abf08047dc3"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-0152b60616f793319"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-070f11845e6e93055"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-0d4fa2f11de0f7999"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-0ea07be7d85893e1c"
+              },
+              {
+                "allocation_id": "",
+                "ipv6_address": "",
+                "outpost_id": "",
+                "private_ipv4_address": "",
+                "subnet_id": "subnet-0ecaa869547b671d2"
+              }
+            ],
+            "subnets": [
+              "subnet-005fc6abf08047dc3",
+              "subnet-0152b60616f793319",
+              "subnet-070f11845e6e93055",
+              "subnet-0d4fa2f11de0f7999",
+              "subnet-0ea07be7d85893e1c",
+              "subnet-0ecaa869547b671d2"
+            ],
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-alb"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-alb"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0cbd7ba556eff6982",
+            "xff_header_processing_mode": "append",
+            "zone_id": "Z35SXDOTRQ7X7K"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.networking.aws_security_group.alb",
+            "module.networking.data.aws_subnets.default",
+            "module.networking.data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "managed",
+      "type": "aws_lb_listener",
+      "name": "http",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "alpn_policy": null,
+            "arn": "arn:aws:elasticloadbalancing:us-east-1:793805163219:listener/app/iot-edge-alb/d647a6dfdd1581bd/0ab229ae387c3917",
+            "certificate_arn": null,
+            "default_action": [
+              {
+                "authenticate_cognito": [],
+                "authenticate_oidc": [],
+                "fixed_response": [],
+                "forward": [],
+                "order": 1,
+                "redirect": [],
+                "target_group_arn": "arn:aws:elasticloadbalancing:us-east-1:793805163219:targetgroup/iot-edge-tg/9cde337fbacd0561",
+                "type": "forward"
+              }
+            ],
+            "id": "arn:aws:elasticloadbalancing:us-east-1:793805163219:listener/app/iot-edge-alb/d647a6dfdd1581bd/0ab229ae387c3917",
+            "load_balancer_arn": "arn:aws:elasticloadbalancing:us-east-1:793805163219:loadbalancer/app/iot-edge-alb/d647a6dfdd1581bd",
+            "mutual_authentication": [],
+            "port": 80,
+            "protocol": "HTTP",
+            "routing_http_request_x_amzn_mtls_clientcert_header_name": null,
+            "routing_http_request_x_amzn_mtls_clientcert_issuer_header_name": null,
+            "routing_http_request_x_amzn_mtls_clientcert_leaf_header_name": null,
+            "routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name": null,
+            "routing_http_request_x_amzn_mtls_clientcert_subject_header_name": null,
+            "routing_http_request_x_amzn_mtls_clientcert_validity_header_name": null,
+            "routing_http_request_x_amzn_tls_cipher_suite_header_name": null,
+            "routing_http_request_x_amzn_tls_version_header_name": null,
+            "routing_http_response_access_control_allow_credentials_header_value": "",
+            "routing_http_response_access_control_allow_headers_header_value": "",
+            "routing_http_response_access_control_allow_methods_header_value": "",
+            "routing_http_response_access_control_allow_origin_header_value": "",
+            "routing_http_response_access_control_expose_headers_header_value": "",
+            "routing_http_response_access_control_max_age_header_value": "",
+            "routing_http_response_content_security_policy_header_value": "",
+            "routing_http_response_server_enabled": true,
+            "routing_http_response_strict_transport_security_header_value": "",
+            "routing_http_response_x_content_type_options_header_value": "",
+            "routing_http_response_x_frame_options_header_value": "",
+            "ssl_policy": "",
+            "tags": null,
+            "tags_all": {},
+            "tcp_idle_timeout_seconds": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsInVwZGF0ZSI6MzAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.networking.aws_lb.main",
+            "module.networking.aws_lb_target_group.app",
+            "module.networking.aws_security_group.alb",
+            "module.networking.data.aws_subnets.default",
+            "module.networking.data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "managed",
+      "type": "aws_lb_target_group",
+      "name": "app",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:elasticloadbalancing:us-east-1:793805163219:targetgroup/iot-edge-tg/9cde337fbacd0561",
+            "arn_suffix": "targetgroup/iot-edge-tg/9cde337fbacd0561",
+            "connection_termination": null,
+            "deregistration_delay": "300",
+            "health_check": [
+              {
+                "enabled": true,
+                "healthy_threshold": 2,
+                "interval": 10,
+                "matcher": "200",
+                "path": "/health",
+                "port": "traffic-port",
+                "protocol": "HTTP",
+                "timeout": 5,
+                "unhealthy_threshold": 10
+              }
+            ],
+            "id": "arn:aws:elasticloadbalancing:us-east-1:793805163219:targetgroup/iot-edge-tg/9cde337fbacd0561",
+            "ip_address_type": "ipv4",
+            "lambda_multi_value_headers_enabled": false,
+            "load_balancer_arns": [],
+            "load_balancing_algorithm_type": "round_robin",
+            "load_balancing_anomaly_mitigation": "off",
+            "load_balancing_cross_zone_enabled": "use_load_balancer_configuration",
+            "name": "iot-edge-tg",
+            "name_prefix": "",
+            "port": 80,
+            "preserve_client_ip": null,
+            "protocol": "HTTP",
+            "protocol_version": "HTTP1",
+            "proxy_protocol_v2": false,
+            "slow_start": 0,
+            "stickiness": [
+              {
+                "cookie_duration": 86400,
+                "cookie_name": "",
+                "enabled": false,
+                "type": "lb_cookie"
+              }
+            ],
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-tg"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-tg"
+            },
+            "target_failover": [
+              {
+                "on_deregistration": null,
+                "on_unhealthy": null
+              }
+            ],
+            "target_group_health": [
+              {
+                "dns_failover": [
+                  {
+                    "minimum_healthy_targets_count": "1",
+                    "minimum_healthy_targets_percentage": "off"
+                  }
+                ],
+                "unhealthy_state_routing": [
+                  {
+                    "minimum_healthy_targets_count": 1,
+                    "minimum_healthy_targets_percentage": "off"
+                  }
+                ]
+              }
+            ],
+            "target_health_state": [
+              {
+                "enable_unhealthy_connection_termination": null,
+                "unhealthy_draining_interval": null
+              }
+            ],
+            "target_type": "ip",
+            "vpc_id": "vpc-0cbd7ba556eff6982"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.networking.data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "alb",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:793805163219:security-group/sg-08927cb7e99df5d1c",
+            "description": "Security group para el Application Load Balancer",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-08927cb7e99df5d1c",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "HTTP desde internet",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "iot-edge-alb-sg",
+            "name_prefix": "",
+            "owner_id": "793805163219",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-alb-sg"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-alb-sg"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0cbd7ba556eff6982"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.networking.data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networking",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "ecs_tasks",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:793805163219:security-group/sg-0d34c6d1965fbb484",
+            "description": "Security group para las tareas ECS",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0d34c6d1965fbb484",
+            "ingress": [
+              {
+                "cidr_blocks": [],
+                "description": "HTTP desde el ALB",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-08927cb7e99df5d1c"
+                ],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "iot-edge-ecs-tasks-sg",
+            "name_prefix": "",
+            "owner_id": "793805163219",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Environment": "lab",
+              "Name": "iot-edge-ecs-tasks-sg"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Name": "iot-edge-ecs-tasks-sg"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0cbd7ba556eff6982"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.networking.aws_security_group.alb",
+            "module.networking.data.aws_vpc.default"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.postgres",
+      "mode": "managed",
+      "type": "aws_db_instance",
+      "name": "postgres",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "address": "iot-postgres.cy60tnifmdu3.us-east-1.rds.amazonaws.com",
+            "allocated_storage": 20,
+            "allow_major_version_upgrade": null,
+            "apply_immediately": false,
+            "arn": "arn:aws:rds:us-east-1:793805163219:db:iot-postgres",
+            "auto_minor_version_upgrade": true,
+            "availability_zone": "us-east-1a",
+            "backup_retention_period": 0,
+            "backup_target": "region",
+            "backup_window": "05:32-06:02",
+            "blue_green_update": [],
+            "ca_cert_identifier": "rds-ca-rsa2048-g1",
+            "character_set_name": "",
+            "copy_tags_to_snapshot": false,
+            "custom_iam_instance_profile": "",
+            "customer_owned_ip_enabled": false,
+            "database_insights_mode": "standard",
+            "db_name": "iot",
+            "db_subnet_group_name": "iot-postgres-subnets",
+            "dedicated_log_volume": false,
+            "delete_automated_backups": true,
+            "deletion_protection": false,
+            "domain": "",
+            "domain_auth_secret_arn": "",
+            "domain_dns_ips": null,
+            "domain_fqdn": "",
+            "domain_iam_role_name": "",
+            "domain_ou": "",
+            "enabled_cloudwatch_logs_exports": null,
+            "endpoint": "iot-postgres.cy60tnifmdu3.us-east-1.rds.amazonaws.com:5432",
+            "engine": "postgres",
+            "engine_lifecycle_support": "open-source-rds-extended-support",
+            "engine_version": "15",
+            "engine_version_actual": "15.17",
+            "final_snapshot_identifier": null,
+            "hosted_zone_id": "Z2R2ITUGPM61AM",
+            "iam_database_authentication_enabled": false,
+            "id": "db-CBJ4RI2KDPT3BWR2H3CDU462CI",
+            "identifier": "iot-postgres",
+            "identifier_prefix": "",
+            "instance_class": "db.t3.micro",
+            "iops": 0,
+            "kms_key_id": "",
+            "latest_restorable_time": "",
+            "license_model": "postgresql-license",
+            "listener_endpoint": [],
+            "maintenance_window": "sun:07:17-sun:07:47",
+            "manage_master_user_password": null,
+            "master_user_secret": [],
+            "master_user_secret_kms_key_id": null,
+            "max_allocated_storage": 0,
+            "monitoring_interval": 0,
+            "monitoring_role_arn": "",
+            "multi_az": false,
+            "nchar_character_set_name": "",
+            "network_type": "IPV4",
+            "option_group_name": "default:postgres-15",
+            "parameter_group_name": "default.postgres15",
+            "password": "Password123!",
+            "password_wo": null,
+            "password_wo_version": null,
+            "performance_insights_enabled": false,
+            "performance_insights_kms_key_id": "",
+            "performance_insights_retention_period": 0,
+            "port": 5432,
+            "publicly_accessible": true,
+            "replica_mode": "",
+            "replicas": [],
+            "replicate_source_db": "",
+            "resource_id": "db-CBJ4RI2KDPT3BWR2H3CDU462CI",
+            "restore_to_point_in_time": [],
+            "s3_import": [],
+            "skip_final_snapshot": true,
+            "snapshot_identifier": null,
+            "status": "available",
+            "storage_encrypted": false,
+            "storage_throughput": 0,
+            "storage_type": "gp2",
+            "tags": null,
+            "tags_all": {},
+            "timeouts": null,
+            "timezone": "",
+            "upgrade_storage_config": null,
+            "username": "postgres",
+            "vpc_security_group_ids": [
+              "sg-0d022fd465edb37b0"
+            ]
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "password"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "password_wo"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NDgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
+          "dependencies": [
+            "module.postgres.aws_db_subnet_group.postgres",
+            "module.postgres.aws_security_group.postgres"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.postgres",
+      "mode": "managed",
+      "type": "aws_db_subnet_group",
+      "name": "postgres",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:rds:us-east-1:793805163219:subgrp:iot-postgres-subnets",
+            "description": "Managed by Terraform",
+            "id": "iot-postgres-subnets",
+            "name": "iot-postgres-subnets",
+            "name_prefix": "",
+            "subnet_ids": [
+              "subnet-005fc6abf08047dc3",
+              "subnet-0ecaa869547b671d2"
+            ],
+            "supported_network_types": [
+              "IPV4"
+            ],
+            "tags": null,
+            "tags_all": {},
+            "vpc_id": "vpc-0cbd7ba556eff6982"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.postgres",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "postgres",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:793805163219:security-group/sg-0d022fd465edb37b0",
+            "description": "Postgres access",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0d022fd465edb37b0",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              }
+            ],
+            "name": "iot-postgres-sg",
+            "name_prefix": "",
+            "owner_id": "793805163219",
+            "revoke_rules_on_delete": false,
+            "tags": null,
+            "tags_all": {},
+            "timeouts": null,
+            "vpc_id": "vpc-0cbd7ba556eff6982"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.storage",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "athena_results",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::lab-iot-edge-athena-results-e3019f3d",
+            "bucket": "lab-iot-edge-athena-results-e3019f3d",
+            "bucket_domain_name": "lab-iot-edge-athena-results-e3019f3d.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "lab-iot-edge-athena-results-e3019f3d.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "504aee8f78d51ff1f4a7b687ed07a89b11263e3772617ebe1e68f1213c557eb8",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "lab-iot-edge-athena-results-e3019f3d",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.storage.random_id.id"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.storage",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "sensor_data",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::lab-iot-edge-sensor-data-e3019f3d",
+            "bucket": "lab-iot-edge-sensor-data-e3019f3d",
+            "bucket_domain_name": "lab-iot-edge-sensor-data-e3019f3d.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "lab-iot-edge-sensor-data-e3019f3d.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "504aee8f78d51ff1f4a7b687ed07a89b11263e3772617ebe1e68f1213c557eb8",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "lab-iot-edge-sensor-data-e3019f3d",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "tags_all": {
+              "Environment": "lab",
+              "Project": "iot-edge"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.storage.random_id.id"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.storage",
+      "mode": "managed",
+      "type": "random_id",
+      "name": "id",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "b64_std": "4wGfPQ==",
+            "b64_url": "4wGfPQ",
+            "byte_length": 4,
+            "dec": "3808534333",
+            "hex": "e3019f3d",
+            "id": "4wGfPQ",
+            "keepers": null,
+            "prefix": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

@@ -1,0 +1,55 @@
+services:
+  # Edge Gateway (MQTT Broker)
+  mosquitto:
+    build: 
+      context: ./edge_gateway
+      dockerfile: Dockerfile
+    container_name: edge-gateway-mosquitto
+    ports:
+      - "1883:1883"
+    restart: unless-stopped
+
+  # Sensor de Temperatura
+  sensor_temp_01:
+    build:
+      context: ./python_device
+      dockerfile: Dockerfile
+    container_name: sensor-temp-01
+    environment:
+      - MQTT_HOST=mosquitto
+      - CLIENT_ID=sensor-temp-01
+      - SENSOR_TYPE=temperature
+      - INTERVAL=5
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+
+  # Sensor de Humedad
+  sensor_humidity_01:
+    build:
+      context: ./python_device
+      dockerfile: Dockerfile
+    container_name: sensor-humidity-01
+    environment:
+      - MQTT_HOST=mosquitto
+      - CLIENT_ID=sensor-humidity-01
+      - SENSOR_TYPE=humidity
+      - INTERVAL=7
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+
+  # Sensor de Presión
+  sensor_presion_01:
+    build:
+      context: ./python_device
+      dockerfile: Dockerfile
+    container_name: sensor-presion-01
+    environment:
+      - MQTT_HOST=mosquitto
+      - CLIENT_ID=sensor-presion-01
+      - SENSOR_TYPE=pressure
+      - INTERVAL=7
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
